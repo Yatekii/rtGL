@@ -7,6 +7,15 @@ The step function was measured and analyzed at first. Knowing the step function 
 
 \subsection{Step Function}
 
+
+
+\subsection{Methods to dermine the controller parameters}
+
+There is many different approaches to determine the characteristics of the system and design a PID controller accordingly. For this experiment, the two described in the next two Sections were used.
+
+\subsubsection{Chien, Hrones, Reswick}
+\label{subs:Chien, Hrones, Reswick}
+
 To determine the characteristics of the system, a step is applied to the input. Then the output is observed.
 
 \begin{figure}[H]
@@ -26,3 +35,48 @@ Using the turn tangent principle depicted in Figure \ref{fig:wendetangentenverfa
 \caption{Step response of a $PT_2$ element}
 \label{fig:wendetangentenverfahren}
 \end{figure}
+
+Once those paramters are known, the PID parameters can be calculated as formulated in Table \ref{tab:chien}.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | c | c | c}
+  Controller Type & $K_p$ & $T_i$ & $T_d$\\
+  \hline
+  \hline
+  P & $0.3 * \frac{T_g}{T_u * K_s}$& - & -\\
+  \hline
+  PI & $0.35 * \frac{T_g}{T_u * K_s}$ & $1.2 * T_g$ & - \\
+  \hline
+  PID & $0.6 * \frac{T_g}{T_u * K_s}$ & $T_g$ & $0.5 * T_u$\\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Chien, Hrones, Reswick Method}
+\label{tab:chien}
+\end{table}
+
+\subsubsection{Ziegler-Nichols}
+\label{subs:Ziegler-Nichols}
+
+To use this also called oscillation method the system characteristics are determined by bringing the system to the brink of oscillationby increasing $K_p$ whilst the I and D parts remain zero. The parameters $K_u$ and $T_u$ are then the gain $K_p$ and the period of the oscillating output.
+
+The PID parameters then can be calculated according to Table \ref{tab:ziegler}.
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{ l | c | c | c}
+  Controller Type & $K_p$ & $T_i$ & $T_d$\\
+  \hline
+  \hline
+  P & $0.5 * K_{P.crit}$& - & -\\
+  \hline
+  PI & $0.45 * K_{P.crit}$ & $0.85 * \tau_{crit}$ & - \\
+  \hline
+  PID & $0.6 * K_{P.crit}$ & $0.5 * \tau_{crit}$ & $0.12 * \tau_{crit}$\\
+  \hline
+\end{tabular}
+\end{center}
+\caption{Ziegler-Nichols Method}
+\label{tab:ziegler}
+\end{table}
