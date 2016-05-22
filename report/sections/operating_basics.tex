@@ -1,41 +1,28 @@
-\section{Regression}
+\section{Operating Basics}
 
-F\"ur eine gegebene Gesetzm\"assigkeit $f(x, a_0, a_1, \ldots)$ werden hierzu Messwertpaare
-$(x_i, y_i)$ gemessen und die Parameter $(a_0, a_1, \ldots)$ so angepasst, bis die Summe der quadratischen
-Abweichungen minimal werden.
+\subsection{Introduction}
 
-\begin{equation}
-    \chi^2(a_1, a_2, \ldots) = \sum_{i=1}^{N} \frac{(y_i - f(x_i, a_1, a_2, \ldots))^2}{\sigma_i^2} \to min
-\end{equation}
+To ensure a good understanding of controllers and controlling theory, a laboratory experiment was performed. As the plant, a motor was used whose speed had to be controlled.
+The step function was measured and analyzed at first. Knowing the step function it was very easy to implement a suitable PID controller.
 
-Wobei $\sigma_i$ die Standardabweichung der Einzelmessungen ist. In vielen praktischen F\"allen ist $\sigma_i$
-\textbf{konstant -- aber unbekannt}. In diesen F\"allen kann sie mit folgender Formel nach der Regression
-berechnet werden.
+\subsection{Step Function}
 
-\begin{equation}
-    \sigma = \sqrt{ \frac{\sum_{i=1}^{N} (y_i - f(x_i, a_1, a_2, \ldots))^2}{N-m} }
-\end{equation}
+To determine the characteristics of the system, a step is applied to the input. Then the output is observed.
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.6\linewidth]{images/general/step_pt2}
+\end{center}
+\caption{Step response of a $PT_2$ element}
+\label{fig:step_pt2}
+\end{figure}
 
-\subsection{Lineare Regression}
+Using the turn tangent principle depicted in Figure \ref{fig:wendetangentenverfahren}, the parameters $T_u$, $T_g$ and $K_s$ were derived.
 
-Es sei die lineare Funktion $\bar{y}=b\bar{x} + a$ f\"ur die Messpaare $(x_i, y_i)$ gesucht.
-
-\begin{equation}
-    \sum_{i=1}^{N} (y_i - (a + bx_i))^2 \to min
-    \label{eq:linear-regression-min}
-\end{equation}
-
-$b$ l\"asst sich mit der folgenden Formel errechnen:
-
-\begin{equation}
-    b = \frac{ \sum_{i=1}^{N} (x_i - \bar{x})(y_i - \bar{y}) }{ \sum_{i=1}^{N} (x_i - \bar{x})^2 }
-\end{equation}
-
-$a$ kann danach direkt durch Aufl\"osen der Funktion $\bar{y}=b\bar{x} + a$ berechnet werden, oder sonst
-\"uber die erste Ableitung der Formel \ref{eq:linear-regression-min} berechnet werden:
-
-\begin{equation}
-    a = \bar{y} - b \bar{x} = \frac{ \sum_{i=1}^{N} x_i^2 \sum_{i=1}^{N} y_i - \sum_{i=1}^{N} x_i \sum_{i=1}^{N} x_i y_i }{ N \sum_{i=1}^{N} x_i^2 - (\sum_{i=1}^{N} x_i)^2 }
-\end{equation}
-
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.6\linewidth]{images/general/wendetangentenverfahren}
+\end{center}
+\caption{Step response of a $PT_2$ element}
+\label{fig:wendetangentenverfahren}
+\end{figure}
