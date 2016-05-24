@@ -1,10 +1,10 @@
-\section{Execution}
+\section{Carrying out the experiment}
 
 \subsection{Experimental setup}
 
 The experiment consisted of a motor that was to control, a tachometer and a controller. To make things more exciting, the system also featured disturbances, emulated by a switch coupling in some resistors.
 
-The setup can be seen in Figure \ref{fig:setup}. The block diagram characterizing the ytem is depicted in Figure \ref{fig:blockdiagram}.
+The setup can be seen in Figure \ref{fig:setup}. The block diagram characterizing the system is depicted in Figure \ref{fig:blockdiagram}.
 
 \begin{figure}[H]
 \begin{center}
@@ -22,11 +22,11 @@ The setup can be seen in Figure \ref{fig:setup}. The block diagram characterizin
 \label{fig:blockdiagram}
 \end{figure}
 
-\subsection{Knowing the system}
+\subsection{Identifying the system}
 
 At first the characteristic curve of the system was recorded to learn more about the limitations of the system. This was done by measuring the outputs for a broad range of inputs.
 
-The highest possible input was 13 Volts whilst the lowest was -13 Volts. This resulted in aproximately 101 turns per minute in either clockwise or counter clockwise direction.
+The highest possible input was 13 Volts whilst the lowest was -13 Volts. This resulted in approximately 102 turns per minute in either clockwise or counter clockwise direction.
 The characteristic curve is plotted in Figure \ref{fig:characteristic_curve}
 
 \begin{figure}[H]
@@ -37,13 +37,13 @@ The characteristic curve is plotted in Figure \ref{fig:characteristic_curve}
 \label{fig:characteristic_curve}
 \end{figure}
 
-Knowing the limits, an operating point of approcimately 7 Volts was chosen which results in around 50 turns. This operatng point as chosen since a system is hard to control at its boundaries. This value isn't to close to the upper limit and ensures that the controller has it's freedom.
+Knowing the limits of the system, an operating point of approcimately 7 Volts was chosen which results in around 50 turns. This operating point was chosen since a system is hard to control at its boundaries. This value is not to close to the upper limit and ensures that the controller has it's freedom.
 
 Sadly a mistake was made  with the settings and all the experiments were done at an operating point of 90 turns per minute. So this should be kept in mind in the further reading.
 
 \subsection{Carrying out the step experiment}
 
-To properly implement a PID using the Chien Hrones Reswick method, the curve seen in Figure \ref{fig:step_response} was analyzed and the parameters in Table \ref{tab:step_params} were determined.
+To properly implement a PID-Controller using the Chien Hrones Reswick method, the curve seen in Figure \ref{fig:step_response} was analyzed and the parameters in Table \ref{tab:step_params} were determined.
 
 \begin{figure}[H]
 \begin{center}
@@ -52,7 +52,6 @@ To properly implement a PID using the Chien Hrones Reswick method, the curve see
 \caption{Step response of the system}
 \label{fig:step_response}
 \end{figure}
-TODO: Change figure!!
 
 \begin{table}[H]
 \begin{center}
@@ -103,3 +102,4 @@ Those parameters can be found by studying the curve seen in Figure \ref{fig:osc_
 \caption{Critical gain $K_{P,crit}$ and $\tau_{crit} $}
 \label{fig:osc_experiment}
 \end{figure}
+\newpage

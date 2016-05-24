@@ -1,27 +1,29 @@
+\tableofcontents
+\newpage
+
 \section{Operating Basics}
 
 \subsection{Introduction}
 
-To ensure a good understanding of controllers and controlling theory, a laboratory experiment was performed. As the plant, a motor was used whose speed had to be controlled.
-The step function was measured and analyzed at first. Knowing the step function it was very easy to implement a suitable PID controller.
+To ensure a good understanding of controllers and controlling theory a laboratory experiment was performed. A motor was used whose speed had to be controlled.
+The step function was measured and analyzed at first. Knowing the step function it was very easy to implement a suitable PID controller. A second approach of analyzing the systems oscillation characteristics was performed as well.
 
 \subsection{Methods to dermine the controller parameters}
 
 There is many different approaches to determine the characteristics of the system and design a PID controller accordingly. For this experiment, the two described in the next two Sections were used.
 
-\subsubsection{Chien, Hrones, Reswick}
+\subsubsection{Chien, Hrones, Reswick Method}
 \label{subs:Chien, Hrones, Reswick}
 
 To determine the characteristics of the system, a step is applied to the input. Then the output is observed.
 
 \begin{figure}[H]
 \begin{center}
-\includegraphics[width=0.5\linewidth]{images/general/step_pt2}
+\includegraphics[width=0.5\linewidth]{images/general/step_pt1}
 \end{center}
-\caption{Step response of a $PT_2$ element}
-\label{fig:step_pt2}
+\caption{Step response of a $PT_1$ element}
+\label{fig:step_pt1}
 \end{figure}
-TODO: step of pt1!!
 
 Using the turn tangent principle depicted in Figure \ref{fig:wendetangentenverfahren}, the parameters $T_u$, $T_g$ and $K_s$ can be derived from the step response.
 
@@ -53,7 +55,7 @@ Once those paramters are known, the PID parameters can be calculated as formulat
 \label{tab:chien}
 \end{table}
 
-\subsubsection{Ziegler-Nichols}
+\subsubsection{Ziegler-Nichols Method}
 \label{subs:Ziegler-Nichols}
 
 To use this also called oscillation method the system characteristics are determined by bringing the system to the brink of oscillationby increasing $K_p$ whilst the I and D parts remain zero. The parameters $K_u$ and $T_u$ are then the gain $K_p$ and the period of the oscillating output.
@@ -77,3 +79,4 @@ The PID parameters then can be calculated according to Table \ref{tab:ziegler}.
 \caption{Ziegler-Nichols Method}
 \label{tab:ziegler}
 \end{table}
+\newpage
