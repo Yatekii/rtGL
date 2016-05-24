@@ -167,8 +167,6 @@ The resulting behavior can be observed in Figure \ref{fig:Ziegler_nichols}
 \label{tab:zn_params}
 \end{table}
 
-The depiction shows clearly that the Chien-Hrones-Reswick is a lot faster than Ziegler-Nichols method.
-
 \begin{figure}[H]
 \begin{center}
 \includegraphics[width=0.5\linewidth]{images/general/PID/Ziegler_nichols}
@@ -193,7 +191,7 @@ For the Chien, Hrones, Reswick experiment, the values in Table \ref{tab:chr_para
  \hline
 \end{tabular}
 \end{center}
-\caption{Ziegler-Nichols Parameter}
+\caption{Chien, Hrones, Reswick Parameter}
 \label{tab:chr_params}
 \end{table}
 
@@ -205,4 +203,16 @@ The systems behavior using these parameters can be studied in Figure \ref{fig:Ch
 \end{center}
 \caption{Chien-Hrones-Reswick tuning rule for $T_{i}, T_{d},K_{P}$}
 \label{fig:Chien_Hrones_Reswick}
+\end{figure}
+
+Both methods of creating a controller yielded similar results. It was then decided to go with the Chien, Hrones, Reswick approach and tinker with it and try and optimize the resulting controller.
+Sadly the rise time could not really be reduced. For that to happen $T_i$ possibly should have been reduced a lot more whilst the $K_P$ and $T_d$ should have increased a lot.
+The disturbance rejection capability is okay, but the system is still very prone to disturbances. This behavior can be seen in Figure \ref{fig:error_rejection}
+
+\begin{figure}[H]
+\begin{center}
+\includegraphics[width=0.5\linewidth]{images/general/PID/Chien_Hrones_Reswick}
+\end{center}
+\caption{Error rejection of the tuned controller}
+\label{fig:error_rejection}
 \end{figure}
